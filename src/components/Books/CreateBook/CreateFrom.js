@@ -1,7 +1,7 @@
 import { React, useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import  Config from '../../Config/Config'
+import  Config from '../../Config'
 
 const  CreatBook = () =>{
   const navigate = useNavigate();
