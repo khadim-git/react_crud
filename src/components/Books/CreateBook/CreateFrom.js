@@ -1,13 +1,15 @@
 import { React, useState } from 'react';
 import axios from 'axios';
-import { Redirect } from 'react-router';
+import { useNavigate } from 'react-router-dom';
+
 const  CreatBook = () =>{
+  const navigate = useNavigate();
   const [bookname ,setBookName] = useState('');
   const [author ,setAuthor] = useState('');
   const [textarea ,setdDiscription] = useState('');
   const [erro ,seterro] = useState('');
   const [success ,setsuccess] = useState('');
-  const URLAPI ='https://crudcrud.com/api/abdd932a0dd04e0f93ae491bef436324/data'
+  const URLAPI ='https://crudcrud.com/api/0cf99ec5d27149448f110291a1546108/data'
 
 
 
@@ -34,8 +36,10 @@ const  CreatBook = () =>{
     setBookName('')
     setAuthor('')
     setdDiscription('')
+    navigate('/books-list');
    // Simulate an HTTP redirect:
-window.location.replace("/books-list");
+
+
     
 
   }
@@ -80,7 +84,7 @@ window.location.replace("/books-list");
                   <label forhtml="exampleFormControlTextarea1" className="form-label">Book discription</label>
                   <textarea onChange={Discriptionchnage} className="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
               </div>
-              <button type="submit"   className="btn btn-primary">Submit</button>
+            <button type="submit"   className="btn btn-primary">Submit</button>
           </form>
               {erro && <div className="alert alert-danger mt-2" role="alert">{erro}</div>}
               {success && <div className="alert alert-success mt-2" role="alert">{success}</div>}

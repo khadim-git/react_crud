@@ -1,8 +1,9 @@
 import { React,  useEffect ,useState } from 'react';
 import axios from 'axios';
-import { useParams } from 'react-router-dom'
+import { useParams , useNavigate } from 'react-router-dom'
 
 const  UpdateForm = () =>{
+  const navigate = useNavigate();
   const { id } = useParams();
   const [dataup,setDataup] = useState('')
   const [bookname ,setBookName] = useState('');
@@ -10,7 +11,7 @@ const  UpdateForm = () =>{
   const [textarea ,setdDiscription] = useState('');
   const [erro ,seterro] = useState('');
   const [success ,setsuccess] = useState('');
-  const URLAPI ='https://crudcrud.com/api/abdd932a0dd04e0f93ae491bef436324/data'
+  const URLAPI ='https://crudcrud.com/api/0cf99ec5d27149448f110291a1546108/data'
 
   useEffect(() =>{
     const  responseData = async() =>{
@@ -50,6 +51,8 @@ const  UpdateForm = () =>{
     setBookName('')
     setAuthor('')
     setdDiscription('')
+    navigate('/books-list');
+
     
 
   }
@@ -59,8 +62,8 @@ const  UpdateForm = () =>{
     discription:textarea
   }
   const confic = {
-    method: 'post',
-    url:URLAPI,
+    method: 'put',
+    url:URLAPI+'/'+id,
     data:data,
     header:{
       "Content-Type": "application/json"
@@ -83,15 +86,15 @@ const  UpdateForm = () =>{
             <form onSubmit={submithindel}>
                 <div className="mb-3">
                   <label forhtml="exampleFormControlInput1" className="form-label">Book Name</label>
-                  <input type="text" value={dataup.name} onChange={Namechnage} className="form-control" id="name" />
+                  <input type="text" defaultValue ={dataup.name} onChange={Namechnage} className="form-control" id="name" />
                 </div>
                 <div className="mb-3">
                   <label forhtml="exampleFormControlInput1" className="form-label">Author Name</label>
-                  <input type="text" value={dataup.author} onChange={Authorlchnage} className="form-control" id="exampleFormControlInput1" />
+                  <input type="text" defaultValue ={dataup.author} onChange={Authorlchnage} className="form-control" id="exampleFormControlInput1" />
                 </div>
                 <div className="mb-3">
                   <label forhtml="exampleFormControlTextarea1" className="form-label">Book discription</label>
-                  <textarea value={dataup.discription} onChange={Discriptionchnage} className="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                  <textarea defaultValue ={dataup.discription} onChange={Discriptionchnage} className="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
               </div>
               <button type="submit"   className="btn btn-primary">Submit</button>
           </form>

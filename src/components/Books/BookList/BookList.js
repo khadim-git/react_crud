@@ -7,7 +7,7 @@ const  BookList = () =>{
   const [data,setData] = useState([])
   const [deleteID,setdeleteID] = useState('')
 
-  const URLAPI ='https://crudcrud.com/api/abdd932a0dd04e0f93ae491bef436324/data'
+  const URLAPI ='https://crudcrud.com/api/0cf99ec5d27149448f110291a1546108/data'
   
   useEffect(() =>{
       const  responseData = async() =>{
@@ -33,12 +33,14 @@ const  BookList = () =>{
     setdeleteID('')
 
   }
-const handelDeletecmf = (Closehendel) =>{
-    axios.delete(URLAPI+'/'+Closehendel)
+const handelDeletecmf = (id) =>{
+    axios.delete(URLAPI+'/'+id)
        .then(res =>{
          console.log(res)
        })
        setdeleteID('')
+
+
 
 
 }
