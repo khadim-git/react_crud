@@ -1,6 +1,7 @@
 import { React, useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import  Config from '../../Config/Config'
 
 const  CreatBook = () =>{
   const navigate = useNavigate();
@@ -9,8 +10,7 @@ const  CreatBook = () =>{
   const [textarea ,setdDiscription] = useState('');
   const [erro ,seterro] = useState('');
   const [success ,setsuccess] = useState('');
-  const URLAPI ='https://crudcrud.com/api/0cf99ec5d27149448f110291a1546108/data'
-
+  const URLAPI = Config.APIUrl
 
 
 
