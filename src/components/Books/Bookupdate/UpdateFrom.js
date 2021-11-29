@@ -1,6 +1,7 @@
 import { React,  useEffect ,useState } from 'react';
 import axios from 'axios';
 import { useParams , useNavigate } from 'react-router-dom'
+import  Config from '../../Config/Config'
 
 const  UpdateForm = () =>{
   const navigate = useNavigate();
@@ -11,7 +12,7 @@ const  UpdateForm = () =>{
   const [textarea ,setdDiscription] = useState('');
   const [erro ,seterro] = useState('');
   const [success ,setsuccess] = useState('');
-  const URLAPI ='https://crudcrud.com/api/5e754c01246f4707ab06d10a6c5b1546/data'
+  const URLAPI = Config.APIUrl
 
   useEffect(() =>{
     const  responseData = async() =>{
