@@ -2,12 +2,13 @@ import React from 'react';
 import axios from 'axios';
 import { useEffect , useState } from 'react';
 import { Link } from 'react-router-dom'
+import  Config from '../../Config/Config'
 
 const  BookList = () =>{
   const [data,setData] = useState([])
   const [deleteID,setdeleteID] = useState('')
 
-  const URLAPI ='https://crudcrud.com/api/0cf99ec5d27149448f110291a1546108/data'
+  const URLAPI = Config.APIUrl
   
   useEffect(() =>{
       const  responseData = async() =>{
